@@ -1,29 +1,32 @@
 #ifndef GRAPHS_GRAPH_H
 #define GRAPHS_GRAPH_H
 
-#define MAXV 50
-
+//list of edges
 typedef struct edgenode {
     int y;
     _Bool discovered;
     struct edgenode *next;
 } EDGENODE;
 
+//info about graph
 typedef struct graph {
-    struct edgenode** edges; //ребра
-    int* degree; // степінь вершини
-    int nNodes; //кількість вузлів
-    int nEdges; //кількість ребер
-    _Bool isDirected; //орієнтований
+    struct edgenode** edges;
+    int* degree;
+    int nNodes;
+    int nEdges;
 } GRAPH;
 
-//ініціалізація графа
+//initialize some variables
 void initializeGraph(GRAPH* , _Bool , int , int);
+//get information about graph from keyboard input
 void readGraphKeyboard(GRAPH*, _Bool);
+//get information about graph from file stream
 void readGraphFile(GRAPH*, _Bool);
+//add edge to list
 void insertEdge(GRAPH*, int, int, _Bool);
+//print into console info about nodes
 void printGraph(GRAPH*);
-void setGraph(GRAPH* graph, _Bool);
+//clear dynamic memory
 void clearGraph(GRAPH* graph);
 
 #endif //GRAPHS_GRAPH_H

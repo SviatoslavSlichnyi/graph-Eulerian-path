@@ -9,7 +9,6 @@ void initializeGraph(GRAPH* graph, _Bool direction, int nNodes, int nEdges)
 {
     graph->nNodes = nNodes;
     graph->nEdges = nEdges;
-    graph->isDirected = direction;
 
     graph->degree = malloc(sizeof(struct edgenode*)* (nNodes+1));
     graph->edges = malloc(sizeof(int) * (nNodes+1));

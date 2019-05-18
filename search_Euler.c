@@ -160,7 +160,7 @@ void initializeSearch(GRAPH* graph, DiscEdges* discoveredEdges[], PATH** start, 
 
 void startSearch(GRAPH* graph, _Bool directed)
 {
-    DiscEdges* discoveredEdges[MAXV+1];//відкрита// побували чи ні
+    DiscEdges** discoveredEdges = malloc(sizeof(DiscEdges*) * (graph->nNodes+1) );//відкрита// побували чи ні
     PATH *start, *end;//шлях який пройшов алгоритм
     int numOfPaths = 0;
 
@@ -173,6 +173,5 @@ void startSearch(GRAPH* graph, _Bool directed)
     }
 
     printf("\n%d paths were found\n", numOfPaths);
+    free(discoveredEdges);
 }
-
-
